@@ -56,7 +56,7 @@ export function IssueHeader({
 
         <Button
           onClick={onNewIssue}
-          className="bg-accent-primary hover:bg-accent-primary/90 self-start sm:self-auto"
+          className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white"
         >
           <Plus className="h-4 w-4 mr-2" />
           New Issue

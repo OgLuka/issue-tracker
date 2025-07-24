@@ -100,15 +100,11 @@ export function NewIssueModal({ isOpen, onClose, onSave }: NewIssueModalProps) {
           <DialogTitle className="text-xl font-bold text-text-primary dark:text-text-primary-dark">
             Create New Issue
           </DialogTitle>
-          <DialogDescription className="text-text-secondary dark:text-text-secondary-dark">
-            Add a new issue to track. Title is required and must be at least 3
-            characters.
-          </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-gap-lg">
           {/* Title Field */}
-          <div className="space-y-2">
+          <div className="space-y-2 mb-5">
             <Label htmlFor="new-title" className="text-sm font-medium">
               Title <span className="text-accent-danger">*</span>
             </Label>
@@ -154,13 +150,13 @@ export function NewIssueModal({ isOpen, onClose, onSave }: NewIssueModalProps) {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex justify-end gap-3 pt-gap border-t border-border dark:border-border-dark">
+          <div className="flex pt-4 justify-end gap-3 pt-gap border-t border-border dark:border-border-dark">
             <Button type="button" variant="outline" onClick={handleCancel}>
               Cancel
             </Button>
             <Button
               type="submit"
-              className="bg-accent-primary hover:bg-accent-primary/90"
+              className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white"
             >
               <Plus className="h-4 w-4 mr-2" />
               Create Issue

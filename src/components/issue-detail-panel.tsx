@@ -89,24 +89,20 @@ export function IssueDetailPanel({
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
-      <SheetContent className="w-[400px] sm:w-[480px] space-y-gap">
+      <SheetContent className="w-[400px] sm:w-[480px] px-4 space-y-gap">
         <SheetHeader>
           <div className="flex items-start justify-between">
             <div className="flex-1 min-w-0">
               <SheetTitle className="text-xl font-bold text-text-primary dark:text-text-primary-dark">
                 Issue #{issue.id}
               </SheetTitle>
-              <SheetDescription className="text-text-secondary dark:text-text-secondary-dark">
-                Edit issue details and save your changes
-              </SheetDescription>
             </div>
-            <StatusBadge status={issue.status} />
           </div>
         </SheetHeader>
 
         <div className="space-y-gap-lg">
           {/* Title Field */}
-          <div className="space-y-2">
+          <div className="space-y-2 mb-5">
             <Label htmlFor="title" className="text-sm font-medium">
               Title
             </Label>
@@ -120,7 +116,7 @@ export function IssueDetailPanel({
           </div>
 
           {/* Status Field */}
-          <div className="space-y-2">
+          <div className="space-y-2 mb-5">
             <Label htmlFor="status" className="text-sm font-medium">
               Status
             </Label>
@@ -142,7 +138,7 @@ export function IssueDetailPanel({
           </div>
 
           {/* Description Field */}
-          <div className="space-y-2">
+          <div className="space-y-2 mb-5">
             <Label htmlFor="description" className="text-sm font-medium">
               Description
             </Label>
@@ -165,13 +161,13 @@ export function IssueDetailPanel({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex justify-end gap-3 pt-gap-lg border-t border-border dark:border-border-dark">
+        <div className="flex pt-4 justify-end gap-3 border-t border-border dark:border-border-dark">
           <Button variant="outline" onClick={handleCancel}>
             Cancel
           </Button>
           <Button
             onClick={handleSave}
-            className="bg-accent-primary hover:bg-accent-primary/90"
+            className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white"
           >
             <Save className="h-4 w-4 mr-2" />
             Save Changes
