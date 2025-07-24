@@ -20,13 +20,13 @@ export function SearchInput({
 }: SearchInputProps) {
   return (
     <div className="relative flex-1 max-w-sm">
-      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-secondary dark:text-text-secondary-dark" />
+      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#334155] dark:text-[#CBD5E1]" />
       <Input
         type="text"
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="pl-10 bg-white dark:bg-surface-dark-secondary border-border dark:border-border-dark"
+        className="pl-10 bg-white dark:bg-[#334155] border-[#CBD5E1] dark:border-[#334155] text-[#0F172A] dark:text-[#F1F5F9]"
       />
     </div>
   );

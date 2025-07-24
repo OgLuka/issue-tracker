@@ -34,7 +34,7 @@ export function SortToggle({ value, onChange }: SortToggleProps) {
       variant="outline"
       size="sm"
       onClick={handleToggle}
-      className="flex items-center gap-2 bg-white dark:bg-surface-dark-secondary border-border dark:border-border-dark"
+      className="flex items-center gap-2 bg-white dark:bg-[#334155] border-[#CBD5E1] dark:border-[#334155] text-[#0F172A] dark:text-[#F1F5F9]"
     >
       {getSortIcon()}
       <span>{getSortLabel()}</span>

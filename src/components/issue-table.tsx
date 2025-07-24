@@ -14,22 +14,14 @@ interface IssueTableProps {
   onIssueClick?: (issue: Issue) => void;
 }
 
-/**
- * IssueTable component displays issues in a responsive table format
- * Features:
- * - Responsive design that stacks information on mobile
- * - Click handler for issue selection
- * - Proper text wrapping for long titles
- * - Status badges and relative time display
- */
 export function IssueTable({ issues, onIssueClick }: IssueTableProps) {
   if (issues.length === 0) {
     return (
-      <div className="text-center py-12 bg-white dark:bg-surface-dark-secondary rounded-lg border border-border dark:border-border-dark">
-        <p className="text-text-secondary dark:text-text-secondary-dark text-lg">
+      <div className="text-center py-12 bg-white dark:bg-[#334155] rounded-lg border border-[#CBD5E1] dark:border-[#334155]">
+        <p className="text-[#334155] dark:text-[#CBD5E1] text-lg">
           No issues found.
         </p>
-        <p className="text-text-secondary dark:text-text-secondary-dark text-sm mt-2">
+        <p className="text-[#334155] dark:text-[#CBD5E1] text-sm mt-2">
           Try adjusting your search or filter criteria.
         </p>
       </div>
@@ -37,7 +29,7 @@ export function IssueTable({ issues, onIssueClick }: IssueTableProps) {
   }
 
   return (
-    <div className="bg-white dark:bg-surface-dark-secondary rounded-lg border border-border dark:border-border-dark overflow-hidden">
+    <div className="bg-white dark:bg-[#334155] rounded-lg border border-[#CBD5E1] dark:border-[#334155] overflow-hidden">
       <div className="overflow-x-auto">
         <Table className="table-fixed w-full">
           <TableHeader>
@@ -58,23 +50,23 @@ export function IssueTable({ issues, onIssueClick }: IssueTableProps) {
             {issues.map((issue) => (
               <TableRow
                 key={issue.id}
-                className="cursor-pointer hover:bg-surface/50 dark:hover:bg-surface-dark/50"
+                className="cursor-pointer hover:bg-[#F1F5F9]/50 dark:hover:bg-[#1E293B]/50"
                 onClick={() => onIssueClick?.(issue)}
               >
                 <TableCell className="font-medium w-[50%] min-w-[250px] pr-4">
                   <div className="space-y-1">
                     {/* Title - wraps on all screen sizes */}
-                    <div className="font-semibold text-text-primary dark:text-text-primary-dark leading-tight break-words hyphens-auto">
-                      <span className="text-sm line-clamp-2 text-wrap">
+                    <div className="font-semibold text-[#0F172A] dark:text-[#F1F5F9] leading-tight break-words hyphens-auto">
+                      <span className="text-sm max-w-[80%] line-clamp-5 text-wrap">
                         {issue.title}
                       </span>
                     </div>
                     {/* Show description on mobile */}
-                    <div className="text-sm text-text-secondary dark:text-text-secondary-dark md:hidden break-words">
+                    <div className="text-sm text-[#334155] dark:text-[#CBD5E1] md:hidden break-words">
                       {issue.description}
                     </div>
                     {/* Show updated time on mobile */}
-                    <div className="text-xs text-text-secondary dark:text-text-secondary-dark sm:hidden">
+                    <div className="text-xs text-[#334155] dark:text-[#CBD5E1] sm:hidden">
                       {issue.updatedAt
                         ? new Date(issue.updatedAt).toLocaleDateString()
                         : "Unknown"}
@@ -86,15 +78,17 @@ export function IssueTable({ issues, onIssueClick }: IssueTableProps) {
                   <StatusBadge status={issue.status} />
                 </TableCell>
 
-                <TableCell className="w-[140px] text-text-secondary dark:text-text-secondary-dark hidden sm:table-cell px-2">
+                <TableCell className="w-[140px] text-[#334155] dark:text-[#CBD5E1] hidden sm:table-cell px-2">
                   {issue.updatedAt
                     ? new Date(issue.updatedAt).toLocaleDateString()
                     : "Unknown"}
                 </TableCell>
 
                 <TableCell className="w-[30%] hidden md:table-cell px-2">
-                  <div className="text-text-secondary dark:text-text-secondary-dark break-words hyphens-auto">
-                    {issue.description}
+                  <div className="text-[#334155] dark:text-[#CBD5E1]">
+                    <span className="line-clamp-5 text-wrap max-w-[90%]">
+                      {issue.description}
+                    </span>
                   </div>
                 </TableCell>
               </TableRow>
@@ -104,8 +98,8 @@ export function IssueTable({ issues, onIssueClick }: IssueTableProps) {
       </div>
 
       {/* Issue Count */}
-      <div className="px-4 py-3 border-t border-border dark:border-border-dark bg-surface/30 dark:bg-surface-dark/30">
-        <div className="text-sm text-text-secondary dark:text-text-secondary-dark">
+      <div className="px-4 py-3 border-t border-[#CBD5E1] dark:border-[#334155] bg-[#F1F5F9]/30 dark:bg-[#1E293B]/30">
+        <div className="text-sm text-[#334155] dark:text-[#CBD5E1]">
           Showing {issues.length} issue{issues.length !== 1 ? "s" : ""}
         </div>
       </div>

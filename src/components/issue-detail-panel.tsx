@@ -93,7 +93,7 @@ export function IssueDetailPanel({
         <SheetHeader>
           <div className="flex items-start justify-between">
             <div className="flex-1 min-w-0">
-              <SheetTitle className="text-xl font-bold text-text-primary dark:text-text-primary-dark">
+              <SheetTitle className="text-xl font-bold text-[#0F172A] dark:text-[#F1F5F9]">
                 Issue #{issue.id}
               </SheetTitle>
             </div>
@@ -152,7 +152,7 @@ export function IssueDetailPanel({
           </div>
 
           {/* Last Updated */}
-          <div className="text-sm text-text-secondary dark:text-text-secondary-dark">
+          <div className="text-sm text-[#334155] dark:text-[#CBD5E1]">
             <strong>Last updated:</strong>{" "}
             {issue.updatedAt
               ? new Date(issue.updatedAt).toLocaleString()
@@ -161,7 +161,7 @@ export function IssueDetailPanel({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex pt-4 justify-end gap-3 border-t border-border dark:border-border-dark">
+        <div className="flex pt-4 justify-end gap-3 border-t border-[#CBD5E1] dark:border-[#334155]">
           <Button variant="outline" onClick={handleCancel}>
             Cancel
           </Button>

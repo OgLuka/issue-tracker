@@ -97,7 +97,7 @@ export function NewIssueModal({ isOpen, onClose, onSave }: NewIssueModalProps) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[480px] space-y-gap">
         <DialogHeader>
-          <DialogTitle className="text-xl font-bold text-text-primary dark:text-text-primary-dark">
+          <DialogTitle className="text-xl font-bold text-[#0F172A] dark:text-[#F1F5F9]">
             Create New Issue
           </DialogTitle>
         </DialogHeader>
@@ -144,13 +144,13 @@ export function NewIssueModal({ isOpen, onClose, onSave }: NewIssueModalProps) {
           </div>
 
           {/* Status Info */}
-          <div className="text-sm text-text-secondary dark:text-text-secondary-dark bg-surface/50 dark:bg-surface-dark/50 rounded-lg p-3">
+          <div className="text-sm my-3 text-[#334155] dark:text-[#CBD5E1] bg-[#F1F5F9]/50 dark:bg-[#1E293B]/50 rounded-lg p-3">
             <strong>Status:</strong> New issues will be created with
             &quot;Open&quot; status
           </div>
 
           {/* Action Buttons */}
-          <div className="flex pt-4 justify-end gap-3 pt-gap border-t border-border dark:border-border-dark">
+          <div className="flex pt-4 justify-end gap-3 pt-gap border-t border-[#CBD5E1] dark:border-[#334155]">
             <Button type="button" variant="outline" onClick={handleCancel}>
               Cancel
             </Button>

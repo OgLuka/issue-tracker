@@ -23,7 +23,7 @@ export type FilterStatus = Issue["status"] | "all";
 export function StatusFilter({ value, onChange }: StatusFilterProps) {
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="w-40 bg-white dark:bg-surface-dark-secondary border-border dark:border-border-dark">
+      <SelectTrigger className="w-40 bg-white dark:bg-[#334155] border-[#CBD5E1] dark:border-[#334155] text-[#0F172A] dark:text-[#F1F5F9]">
         <SelectValue placeholder="Status" />
       </SelectTrigger>
       <SelectContent>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { SearchInput } from "@/components/search-input";
 import { StatusFilter } from "@/components/status-filter";
 import { SortToggle } from "@/components/sort-toggle";
+import { DarkModeToggle } from "@/components/dark-mode-toggle";
 import { Plus } from "lucide-react";
 
 interface IssueHeaderProps {
@@ -38,7 +39,7 @@ export function IssueHeader({
   return (
     <header className="space-y-4 mb-3 pb-gap mb-gap">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-        <h1 className="text-3xl my-3 font-bold text-text-primary dark:text-text-primary-dark">
+        <h1 className="text-3xl my-3 font-bold text-[#0F172A] dark:text-[#F1F5F9]">
           Issues
         </h1>
 
@@ -54,13 +55,16 @@ export function IssueHeader({
           <SortToggle value={sortOrder} onChange={onSortOrderChange} />
         </div>
 
-        <Button
-          onClick={onNewIssue}
-          className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white"
-        >
-          <Plus className="h-4 w-4 mr-2" />
-          New Issue
-        </Button>
+        <div className="flex gap-2 items-center">
+          <DarkModeToggle />
+          <Button
+            onClick={onNewIssue}
+            className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white"
+          >
+            <Plus className="h-4 w-4 mr-2" />
+            New Issue
+          </Button>
+        </div>
       </div>
     </header>
   );
