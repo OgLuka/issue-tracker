@@ -36,29 +36,12 @@ export function IssueHeader({
   onNewIssue,
 }: IssueHeaderProps) {
   return (
-    <header className="space-y-4 pb-gap mb-gap">
-      {/* Title Section */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h1 className="text-3xl my-3 font-bold text-text-primary dark:text-text-primary-dark">
-            Issues
-          </h1>
-          <p className="text-text-secondary dark:text-text-secondary-dark">
-            Manage and track your project issues
-          </p>
-        </div>
+    <header className="space-y-4 mb-3 pb-gap mb-gap">
+      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+        <h1 className="text-3xl my-3 font-bold text-text-primary dark:text-text-primary-dark">
+          Issues
+        </h1>
 
-        <Button
-          onClick={onNewIssue}
-          className="bg-accent-primary hover:bg-accent-primary/90 self-start sm:self-auto"
-        >
-          <Plus className="h-4 w-4 mr-2" />
-          New Issue
-        </Button>
-      </div>
-
-      {/* Controls Section */}
-      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
         <SearchInput
           value={searchQuery}
           onChange={onSearchChange}
@@ -70,6 +53,14 @@ export function IssueHeader({
 
           <SortToggle value={sortOrder} onChange={onSortOrderChange} />
         </div>
+
+        <Button
+          onClick={onNewIssue}
+          className="bg-accent-primary hover:bg-accent-primary/90 self-start sm:self-auto"
+        >
+          <Plus className="h-4 w-4 mr-2" />
+          New Issue
+        </Button>
       </div>
     </header>
   );
