@@ -38,64 +38,70 @@ export function IssueTable({ issues, onIssueClick }: IssueTableProps) {
 
   return (
     <div className="bg-white dark:bg-surface-dark-secondary rounded-lg border border-border dark:border-border-dark overflow-hidden">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="font-semibold">Title</TableHead>
-            <TableHead className="font-semibold w-32">Status</TableHead>
-            <TableHead className="font-semibold w-40 hidden sm:table-cell">
-              Updated
-            </TableHead>
-            <TableHead className="font-semibold hidden md:table-cell">
-              Description
-            </TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {issues.map((issue) => (
-            <TableRow
-              key={issue.id}
-              className="cursor-pointer hover:bg-surface/50 dark:hover:bg-surface-dark/50"
-              onClick={() => onIssueClick?.(issue)}
-            >
-              <TableCell className="font-medium">
-                <div className="space-y-1">
-                  {/* Title - wraps on all screen sizes */}
-                  <div className="font-semibold text-text-primary dark:text-text-primary-dark leading-tight break-words">
-                    {issue.title}
+      <div className="overflow-x-auto">
+        <Table className="table-fixed w-full">
+          <TableHeader>
+            <TableRow>
+              <TableHead className="font-semibold w-[50%] min-w-[250px]">
+                Title
+              </TableHead>
+              <TableHead className="font-semibold w-[120px]">Status</TableHead>
+              <TableHead className="font-semibold w-[140px] hidden sm:table-cell">
+                Updated
+              </TableHead>
+              <TableHead className="font-semibold w-[30%] hidden md:table-cell">
+                Description
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {issues.map((issue) => (
+              <TableRow
+                key={issue.id}
+                className="cursor-pointer hover:bg-surface/50 dark:hover:bg-surface-dark/50"
+                onClick={() => onIssueClick?.(issue)}
+              >
+                <TableCell className="font-medium w-[50%] min-w-[250px] pr-4">
+                  <div className="space-y-1">
+                    {/* Title - wraps on all screen sizes */}
+                    <div className="font-semibold text-text-primary dark:text-text-primary-dark leading-tight break-words hyphens-auto">
+                      <span className="text-sm line-clamp-2 text-wrap">
+                        {issue.title}
+                      </span>
+                    </div>
+                    {/* Show description on mobile */}
+                    <div className="text-sm text-text-secondary dark:text-text-secondary-dark md:hidden break-words">
+                      {issue.description}
+                    </div>
+                    {/* Show updated time on mobile */}
+                    <div className="text-xs text-text-secondary dark:text-text-secondary-dark sm:hidden">
+                      {issue.updatedAt
+                        ? new Date(issue.updatedAt).toLocaleDateString()
+                        : "Unknown"}
+                    </div>
                   </div>
-                  {/* Show description on mobile */}
-                  <div className="text-sm text-text-secondary dark:text-text-secondary-dark md:hidden break-words">
+                </TableCell>
+
+                <TableCell className="w-[120px] px-2">
+                  <StatusBadge status={issue.status} />
+                </TableCell>
+
+                <TableCell className="w-[140px] text-text-secondary dark:text-text-secondary-dark hidden sm:table-cell px-2">
+                  {issue.updatedAt
+                    ? new Date(issue.updatedAt).toLocaleDateString()
+                    : "Unknown"}
+                </TableCell>
+
+                <TableCell className="w-[30%] hidden md:table-cell px-2">
+                  <div className="text-text-secondary dark:text-text-secondary-dark break-words hyphens-auto">
                     {issue.description}
                   </div>
-                  {/* Show updated time on mobile */}
-                  <div className="text-xs text-text-secondary dark:text-text-secondary-dark sm:hidden">
-                    {issue.updatedAt
-                      ? new Date(issue.updatedAt).toLocaleDateString()
-                      : "Unknown"}
-                  </div>
-                </div>
-              </TableCell>
-
-              <TableCell>
-                <StatusBadge status={issue.status} />
-              </TableCell>
-
-              <TableCell className="text-text-secondary dark:text-text-secondary-dark hidden sm:table-cell">
-                {issue.updatedAt
-                  ? new Date(issue.updatedAt).toLocaleDateString()
-                  : "Unknown"}
-              </TableCell>
-
-              <TableCell className="hidden md:table-cell">
-                <div className="max-w-md text-text-secondary dark:text-text-secondary-dark break-words">
-                  {issue.description}
-                </div>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
 
       {/* Issue Count */}
       <div className="px-4 py-3 border-t border-border dark:border-border-dark bg-surface/30 dark:bg-surface-dark/30">

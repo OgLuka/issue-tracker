@@ -13,13 +13,13 @@ export function StatusBadge({ status }: StatusBadgeProps) {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "open":
-        return "bg-status-open/10 text-status-open border-status-open/20";
+        return "bg-[#3B82F6]/10 text-[#3B82F6] border-[#3B82F6]/20"; // Blue for open
       case "in_progress":
-        return "bg-status-in-progress/10 text-status-in-progress border-status-in-progress/20";
+        return "bg-[#F59E0B]/10 text-[#F59E0B] border-[#F59E0B]/20"; // Amber for in progress
       case "closed":
-        return "bg-status-closed/10 text-status-closed border-status-closed/20";
+        return "bg-[#10B981]/10 text-[#10B981] border-[#10B981]/20"; // Green for closed
       default:
-        return "";
+        return "bg-gray-100 text-gray-600 border-gray-200";
     }
   };
 
